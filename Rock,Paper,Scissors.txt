@@ -1,0 +1,53 @@
+const getUserChoice = (userInput) =>{
+  userInput=userInput.toLowerCase();
+  if(userInput==='rock' || userInput==='paper'|| userInput==='scissors'){    
+   return userInput; 
+  }else{
+     console.log('You gave an invalid input');
+  }
+};
+const getComputerChoice=() =>{
+  let choice= Math.floor(Math.random() * 3);
+  if(choice===0){
+    return 'rock';
+  }else if(choice===1){
+     return 'paper';  
+  }else{
+    return 'scissors';
+  }
+};
+const determineWinner= (userInput,computerChoice)=>{
+  if(userInput===computerChoice){
+    console.log('Its a tie');
+  }else if(userInput==='rock'){
+    if(computerChoice==='paper'){
+      console.log('The Computer Wins');
+    }else{
+      console.log('The Player Wins');
+    }
+  }else if(userInput==='paper'){
+    if(computerChoice==='scissors'){
+      console.log('The Computer Wins');
+    }else {
+      console.log('The Player Wins ');
+    }
+  }else if(userInput==='scissors'){
+    if(computerChoice==='rock'){
+      console.log('The Computer Wins');
+    }else{
+      console.log('The Player Wins');
+    }
+  }else if(userInput ==='bomb'){
+    console.log('The Palyer Wins');
+  }else {
+    console.log('Invalid Input!');
+  }
+};
+const playGame=()=>{
+  let userChoice=getUserChoice('paper');
+  console.log(userChoice);
+  let compChoice=getComputerChoice();
+  console.log(compChoice);
+ determineWinner(userChoice,compChoice);
+};
+playGame();
